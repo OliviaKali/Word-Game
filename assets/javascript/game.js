@@ -36,15 +36,26 @@ document.onkeyup = function(event) {
     console.log(`COMPUTER GUESS ${computerGuess}`);
     //make condition- letter they press is correct
 
+  
+
     if (computerGuess.includes(userGuess)) {
         console.log('hit')
 
         for (var i = 0; i < computerGuess.length; i++) {
-            
+            if (computerGuess[i] === userGuess) {
+                blanks[i] = userGuess
+            }
         }
+    } else {
+        guessesLeft --
+        guessedLetters.push(userGuess)
     }
 
     console.log(blanks)
+
+    if (!computerGuess.includes('_ ')) {
+        // win condition
+    }
 }
  
 reset()
